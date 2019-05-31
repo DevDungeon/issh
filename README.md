@@ -6,7 +6,7 @@ Improved SSH launcher that provides a browsable
 menu of SSH servers. Uses `~/.ssh/config`
 to generate menu.
 
-![Screenshot](screenshots/screenshot1.png)
+![Works in Windows, Mac, Linux](screenshots/screenshot1.png)
 
 ## Install
 
@@ -52,7 +52,7 @@ issh.run()
 
 If you have permission errors with the `~/.ssh/config` file,
 make sure the `.ssh/` directory has `700` permissions and
-the `config` file has `644` permissions. Also ensure
+the `config` file has `600` permissions. Also ensure
 the owner is correct.
 
 ## Author
