@@ -1,5 +1,7 @@
 # issh
 
+[![PyPI version](https://badge.fury.io/py/issh.svg)](https://badge.fury.io/py/issh)
+
 Improved SSH launcher that provides a browsable
 menu of SSH servers. Uses `~/.ssh/config`
 to generate menu.
