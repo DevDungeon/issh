@@ -36,7 +36,7 @@ class ISSH:
         with open(self.ssh_config_path) as ssh_config:
             for line in ssh_config.readlines():
                 line = line.rstrip()
-                if line[0] == ' ' or line[0] == '\t':
+                if len(line) == 0 or line[0] == ' ' or line[0] == '\t':
                     continue
                 try:
                     self.hosts.append(line.split()[1])
