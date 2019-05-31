@@ -6,6 +6,8 @@ Improved SSH launcher that provides a browsable
 menu of SSH servers. Uses `~/.ssh/config`
 to generate menu.
 
+![Screenshot](screenshots/screenshot1.png)
+
 ## Install
 
 Install from pypi.org using:
