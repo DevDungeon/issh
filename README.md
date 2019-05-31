@@ -21,7 +21,7 @@ the root of the source code directory:
 python setup.py install
 ```
 
-If uses Windows, also install `windows-curses`.
+If uses Windows, also install `windows-curses` (included in setup.py).
 
 ```bash
 python -m pip install windows-curses
@@ -37,6 +37,10 @@ issh
 # or
 python -m issh
 ```
+
+If you have permission errors with the `~/.ssh/config` file,
+make sure the `.ssh/` directory has `700` permissions and
+the `config` file has `644` permissions.
 
 ## Author
 
