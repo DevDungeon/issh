@@ -47,6 +47,12 @@ issh = ISSH()
 issh.run()
 ```
 
+## Controls
+
+- `Esc` or `q`: Quit
+- `Enter`, `l`, or `Right Arrow`: Connect
+- `j` or `Down Arrow`: Down
+- `k` or `Up Arrow`: Up
 
 ## Troubleshooting
 
