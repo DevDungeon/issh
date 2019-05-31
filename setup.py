@@ -10,8 +10,9 @@ if platform == "win32":
 
 setup(
     name='issh',
-    version='1.0.5',
+    version='1.0.6',
     description='Improved SSH: TUI menu for connecting to SSH config hosts',
+    long_description_content_type='text/markdown',
     long_description=open('README.md').read(),
     url='https://github.com/DevDungeon/issh',
     author='DevDungeon',

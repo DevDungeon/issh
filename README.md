@@ -40,7 +40,8 @@ python -m issh
 
 If you have permission errors with the `~/.ssh/config` file,
 make sure the `.ssh/` directory has `700` permissions and
-the `config` file has `644` permissions.
+the `config` file has `644` permissions. Also ensure
+the owner is correct.
 
 ## Author
 
