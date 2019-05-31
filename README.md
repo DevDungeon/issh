@@ -23,12 +23,6 @@ the root of the source code directory:
 python setup.py install
 ```
 
-If uses Windows, also install `windows-curses` (included in setup.py).
-
-```bash
-python -m pip install windows-curses
-```
-
 ## Usage
 
 Simply run `issh` from the command line to launch
@@ -36,9 +30,25 @@ the menu.
 
 ```bash
 issh
-# or
+```
+
+Or invoke via Python:
+
+```bash
 python -m issh
 ```
+
+To use the tool inside PYthon source code:
+
+```python
+from issh import ISSH
+
+issh = ISSH()
+issh.run()
+```
+
+
+## Troubleshooting
 
 If you have permission errors with the `~/.ssh/config` file,
 make sure the `.ssh/` directory has `700` permissions and
