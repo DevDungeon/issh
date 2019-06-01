@@ -75,9 +75,6 @@ class ISSH:
                     self.active_choice -= 1
             elif char_ord == 10 or char == 'L' or char_ord == 261:  # Enter key or L or Right
                 break
-            else:
-                print('other key')
-                print(char_ord)
 
         # After breaking out of loop, ssh to the active target
         self.cleanup_curses()
