@@ -36,7 +36,7 @@ class ISSH:
         with open(self.ssh_config_path) as ssh_config:
             for line in ssh_config.readlines():
                 line = line.rstrip()
-                if len(line) == 0 or line[0] == ' ' or line[0] == '\t' or line.lstrip[0] == '#':
+                if len(line) == 0 or line[0] == ' ' or line[0] == '\t' or line.lstrip()[0] == '#':
                     continue
                 try:
                     self.hosts.append(line.split()[1])
@@ -95,7 +95,7 @@ class ISSH:
         sys.exit(0)
 
     def launch_editor(self):
-        editor = environ('EDITOR')
+        editor = environ.get('EDITOR')
         if editor is None:  # Default editors
             if sys.platform == 'win32':
                 editor = 'notepad.exe'
