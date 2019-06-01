@@ -53,6 +53,11 @@ issh.run()
 - `Enter`, `l`, or `Right Arrow`: Connect
 - `j` or `Down Arrow`: Down
 - `k` or `Up Arrow`: Up
+- `e`: Edit SSH config file
+
+When using the Edit (`e`) command, it tries to use
+the editor defined in `EDITOR` environment variable,
+otherwise attempts to default to a system editor. 
 
 ## Troubleshooting
 
@@ -64,3 +69,9 @@ the owner is correct.
 ## Author
 
 NanoDano <nanodano@devdungeon.com>
+
+## To do
+
+- E for edit to edit ssh config
+- On right, show the config details
+- Properly handle lines with comments

@@ -1,5 +1,5 @@
 import curses
-from os import system
+from os import system, environ
 from os.path import join, expanduser, exists
 import sys
 from signal import signal, SIGINT, SIGTERM
@@ -36,7 +36,7 @@ class ISSH:
         with open(self.ssh_config_path) as ssh_config:
             for line in ssh_config.readlines():
                 line = line.rstrip()
-                if len(line) == 0 or line[0] == ' ' or line[0] == '\t':
+                if len(line) == 0 or line[0] == ' ' or line[0] == '\t' or line.lstrip[0] == '#':
                     continue
                 try:
                     self.hosts.append(line.split()[1])
@@ -73,6 +73,8 @@ class ISSH:
             elif char == 'K' or char_ord == 259:  # Up or K
                 if self.active_choice > 0:
                     self.active_choice -= 1
+            elif char == 'E':  # Up or K
+                self.launch_editor()
             elif char_ord == 10 or char == 'L' or char_ord == 261:  # Enter key or L or Right
                 break
 
@@ -91,6 +93,18 @@ class ISSH:
     def shutdown(self):
         self.cleanup_curses()
         sys.exit(0)
+
+    def launch_editor(self):
+        editor = environ('EDITOR')
+        if editor is None:  # Default editors
+            if sys.platform == 'win32':
+                editor = 'notepad.exe'
+            elif sys.platform == 'darwin':
+                editor = 'open'
+            elif 'linux' in sys.platform:
+                editor = 'vi'
+        system("%s %s" % (editor, self.ssh_config_path))
+        self.load_ssh_hosts()  # Reload hosts after changes
 
 
 if __name__ == '__main__':
