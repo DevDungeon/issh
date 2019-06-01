@@ -6,6 +6,8 @@ Improved SSH launcher that provides a browsable
 menu of SSH servers. Uses `~/.ssh/config`
 to generate menu.
 
+For more tips on using SSH and the configuration file, check out [https://www.devdungeon.com/content/ssh-tips](https://www.devdungeon.com/content/ssh-tips)
+
 ![Works in Windows, Mac, Linux](screenshots/screenshot1.png)
 
 ## Install
