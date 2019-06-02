@@ -17,11 +17,13 @@ setup(
     url='https://github.com/DevDungeon/issh',
     author='DevDungeon',
     author_email='nanodano@devdungeon.com',
-    license='GPL-3.0',
     py_modules=['issh'],
     scripts=scripts,
     zip_safe=False,
     install_requires=[
         requirements,
+    ],
+    classifiers=[
+        'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
     ],
 )
