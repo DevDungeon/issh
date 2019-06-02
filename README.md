@@ -74,6 +74,4 @@ NanoDano <nanodano@devdungeon.com>
 
 ## To do
 
-- E for edit to edit ssh config
 - On right, show the config details
-- Properly handle lines with comments
