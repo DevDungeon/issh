@@ -68,6 +68,10 @@ make sure the `.ssh/` directory has `700` permissions and
 the `config` file has `600` permissions. Also ensure
 the owner is correct.
 
+## Source code
+
+[https://github.com/DevDungeon/issh](https://github.com/DevDungeon/issh)
+
 ## Author
 
 NanoDano <nanodano@devdungeon.com>
