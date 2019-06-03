@@ -1,0 +1,5 @@
+#!C:\Users\DTron\AppData\Local\Programs\Python\Python36\python.exe
+from issh import ISSH
+
+issh = ISSH()
+issh.run()
