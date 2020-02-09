@@ -28,7 +28,8 @@ class ISSH:
 
     def check_if_ssh_config_exists(self):
         if not exists(self.ssh_config_path):
-            print('No SSH config file detected. Aborting.')
+            curses.endwin()
+            print('No SSH config file detected at ' + self.ssh_config_path + '. Aborting.')
             sys.exit(1)
 
     def load_ssh_hosts(self):
