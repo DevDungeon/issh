@@ -9,7 +9,7 @@ from signal import signal, SIGINT, SIGTERM
 class ISSH:
 
     def __init__(self, screen):
-        print ('[*] Initializing ISSH')
+        print('[*] Initializing ISSH')
         signal(SIGINT, self.shutdown)
         signal(SIGTERM, self.shutdown)
 
@@ -75,6 +75,10 @@ class ISSH:
                 elif char == 'K' or char_ord == curses.KEY_UP:  # Up or K
                     if self.active_choice > 0:
                         self.active_choice -= 1
+                elif char == 'g':  # Move to top
+                    self.active_choice = 0
+                elif char == 'G':  # Move to last item
+                    self.active_choice = len(self.hosts) - 1
                 elif char == 'E':
                     self.launch_editor()
                 elif char == 'R':  # Refresh screen
@@ -125,7 +129,9 @@ class ISSH:
         self.screen.addstr(6, 0, "  Down or J - Move selection down")
         self.screen.addstr(7, 0, "  Up or K - Move selection up")
         self.screen.addstr(8, 0, "  Right or L or Enter - SSH to current selection")
-        self.screen.addstr(10, 0, "Press any key to continue")
+        self.screen.addstr(9, 0, "  G - Move to last item")
+        self.screen.addstr(10, 0, "  g - Move to first item")
+        self.screen.addstr(12, 0, "Press any key to continue")
 
         # Wait for any key press
         self.screen.getch()
