@@ -65,27 +65,27 @@ class ISSH:
 
             try:
                 char_ord = self.screen.getch()
-                char = chr(char_ord).upper()
+                char = chr(char_ord)
 
-                if char == 'Q' or char_ord == curses.ascii.ESC:  # Esc or Q
+                if char.upper() == 'Q' or char_ord == curses.ascii.ESC:  # Esc or Q
                     self.shutdown()
-                elif char == 'J' or char_ord == curses.KEY_DOWN:  # Down or J
+                elif char.upper() == 'J' or char_ord == curses.KEY_DOWN:  # Down or J
                     if self.active_choice < len(self.hosts) - 1:
                         self.active_choice += 1
-                elif char == 'K' or char_ord == curses.KEY_UP:  # Up or K
+                elif char.upper() == 'K' or char_ord == curses.KEY_UP:  # Up or K
                     if self.active_choice > 0:
                         self.active_choice -= 1
                 elif char == 'g':  # Move to top
                     self.active_choice = 0
                 elif char == 'G':  # Move to last item
                     self.active_choice = len(self.hosts) - 1
-                elif char == 'E':
+                elif char.upper() == 'E':
                     self.launch_editor()
-                elif char == 'R':  # Refresh screen
+                elif char.upper() == 'R':  # Refresh screen
                     self.load_ssh_hosts()
-                elif char == 'H':  # Print help screen
+                elif char.upper() == 'H':  # Print help screen
                     self.print_help_screen()
-                elif char_ord == curses.ascii.LF or char == 'L' or char_ord == curses.KEY_RIGHT:  # Enter, L or Right
+                elif char_ord == curses.ascii.LF or char.upper() == 'L' or char_ord == curses.KEY_RIGHT:  # Enter, L or Right
                     # Choice has been selected already, exit the menu system
                     break
             except Exception as e:
