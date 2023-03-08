@@ -43,6 +43,7 @@ class ISSH:
                     self.hosts.append(line.split()[1])
                 except IndexError:
                     print(f"[-] Warning: Invalid host format detected on line: {line}")
+        self.hosts.sort()
 
     def run(self):
         self.input_loop()
