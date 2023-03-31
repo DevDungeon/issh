@@ -42,7 +42,8 @@ class ISSH:
                 try:
                     self.hosts.append(line.split()[1])
                 except IndexError:
-                    print('[-] Warning: Invalid host format detected on line: %s' % line)
+                    print(f"[-] Warning: Invalid host format detected on line: {line}")
+        self.hosts.sort()
 
     def run(self):
         self.input_loop()
@@ -52,11 +53,15 @@ class ISSH:
         num_header_rows = 2
         self.screen.addstr(0, 0, "Select an SSH host (Press H for help):")
 
-        for i, host in enumerate(self.hosts):
-            if i == self.active_choice:
-                self.screen.addstr(i + num_header_rows, 0, " > %s" % (host), curses.color_pair(1) | curses.A_BOLD)
-            else:
-                self.screen.addstr(i + num_header_rows, 0, "   %s" % (host))
+        for i, host in enumerate(self.hosts[self.active_choice:]):
+            try:
+                if i == 0:
+                    self.screen.addstr(i + num_header_rows, 0, f" > {host}", curses.color_pair(1) | curses.A_BOLD)
+                else:
+                    self.screen.addstr(i + num_header_rows, 0, f"   {host}")
+            except:
+                # Suppress error if list is longer than window
+                pass
         self.screen.refresh()
 
     def input_loop(self):
@@ -94,7 +99,7 @@ class ISSH:
 
         # After breaking out of loop, ssh to the active target
         self.cleanup_curses()
-        system('ssh %s' % self.hosts[self.active_choice])
+        system(f"ssh {self.hosts[self.active_choice]}")
 
     def cleanup_curses(self):
         self.screen.keypad(0)
@@ -115,7 +120,7 @@ class ISSH:
                 editor = 'nano'
             elif 'linux' in sys.platform:
                 editor = 'vi'
-        system("%s %s" % (editor, self.ssh_config_path))
+        system(f"{editor} {self.ssh_config_path}")
         self.load_ssh_hosts()  # Reload hosts after changes
 
     def print_help_screen(self):
